@@ -16,9 +16,13 @@ protocol ToDoProto: class
     
     func add(object: Object)
     func remove(object: Object)
+    func removeObjAtIndx(indexPath: NSIndexPath)
     func removeAll()
     func getAll() -> [Object]
-    func sortBasedOnPriority()
+    func objectAtIndex(index: Int) -> Object?
+    func sortBasedOnPriority (i1:Int, i2:Int) -> Bool
+    func save()
+    func count() -> Int
 }
 
 extension ToDoProto
@@ -26,22 +30,41 @@ extension ToDoProto
     func add(object: Object)
     {
         self.items.append(object)
+        save()
     }
     func remove(object: Object)
     {
         self.items = self.items.filter() { $0 !== object }
+        save()
+    }
+    func removeObjAtIndx(indexPath: NSIndexPath)
+    {
+        self.items.removeAtIndex(indexPath.row)
+        save()
     }
     func removeAll()
     {
         self.items.removeAll()
+        save()
     }
     func getAll() -> [Object]
     {
         return self.items
     }
-    
+    func objectAtIndex(index: Int) -> Object?
+    {
+        return self.items[index]
+    }
     func sortBasedOnPriority (i1:Int, i2:Int) -> Bool
     {
         return i1 > i2
+    }
+    func save()
+    {
+        NSKeyedArchiver.archiveRootObject(self.items, toFile: String.archivePath())
+    }
+    func count() -> Int
+    {
+        return self.items.count
     }
 }

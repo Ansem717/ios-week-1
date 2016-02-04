@@ -38,10 +38,10 @@ class Todo: NSObject, NSCoding
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(title, forKey: "title")
-        aCoder.encodeObject(descript, forKey: "descript")
-        aCoder.encodeObject(dueDate, forKey: "dueDate")
-        aCoder.encodeObject(priority, forKey: "priority")
-        aCoder.encodeObject(id, forKey: "id")
+        aCoder.encodeObject(self.title, forKey: "title")
+        aCoder.encodeObject(self.descript, forKey: "descript")
+        aCoder.encodeObject(self.dueDate, forKey: "dueDate")
+        aCoder.encodeObject(self.priority, forKey: "priority")
+        aCoder.encodeObject(self.id, forKey: "id")
     }
 }

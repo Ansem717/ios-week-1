@@ -12,11 +12,24 @@ class ToDoStorage: ToDoProto
 {
     typealias Object = Todo
     
-    var items = [Object]()
+    var items: [Object]
  
     static let shared = ToDoStorage()
     
-    private init() {}
+    private init()
+    {
+        guard let data = NSData(contentsOfURL: NSURL.archiveURL()) else {
+            self.items = [Object]()
+            return
+        }
+        
+        guard let storedItems = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Object] else {
+            self.items = [Object]()
+            return
+        }
+        
+        self.items = storedItems
+    }
 }
 
 //Something in this file broke my code. I didn't copy and paste, but I also don't understand this. I mimiced the code from
