@@ -18,7 +18,15 @@ class NewItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "New"
+
+        let newToDo = Todo(title: "Go to sleep!", descript: "Go to sleep at a reasonable time each night!", dueDate: "Due every night.")
+        let twoToDo = Todo(title: "Clean Dishes", descript: "Clean your dishes tonight, asap", dueDate: "Feb 3 2016", priority: 5)
+        print(ToDoStorage.shared) //Prints array after items are made, but none are added.
+        ToDoStorage.shared.add(newToDo)
+        print(ToDoStorage.shared) //Prints array after first item is added.
+        ToDoStorage.shared.add(twoToDo)
+        print(ToDoStorage.shared) //Prints array after 2nd item is added.
+        //I didn't go more indepth on printing the functionality because I couldn't test if it worked due to the damn internal error.
     }
 
     override func didReceiveMemoryWarning() {
