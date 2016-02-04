@@ -15,7 +15,7 @@ class Todo: NSObject, NSCoding
     let dueDate: String
     var priority: Int?
     
-    let id: String?
+    var id: String?
     
     init(title: String, descript: String, dueDate: String, priority: Int? = 0, id: String? = NSUUID().UUIDString)
     {

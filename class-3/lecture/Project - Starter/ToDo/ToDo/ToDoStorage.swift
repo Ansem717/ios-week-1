@@ -13,7 +13,7 @@ class ToDoStorage: ToDoProto
     typealias Object = Todo
     
     var items = [Object]()
-
+ 
     static let shared = ToDoStorage()
     
     private init() {}
