@@ -57,7 +57,7 @@ lengthOfString(superstring)
 
 
 func reverseString(str: String) -> String? {
-    let length = str.characters.count
+    let length = str.characters.count // Counts first item as 1, not 0
     var revStr = ""
     for var i = 1; i <= length; i++ {
         let findCharacter = str.startIndex.advancedBy(length-i)
@@ -67,7 +67,12 @@ func reverseString(str: String) -> String? {
     return revStr
 }
 
+let currCharacter: Character = superstring[superstring.startIndex.advancedBy(0)]
+
 reverseString(superstring) // INPUT: John Jacob Jingleheimer Schmidt || OUTPUT: tdimhcS remiehelgniJ bocaJ nhoJ
+
+reverseString("Hi, my name is Andy")
+
 
 // I spent a good majority of my time on this one. I kept getting a BAD_INSTRUCTION error down here on line 70 which made it really hard to debug.
 // I went line by line until I realized that the issue was on line 63, and it had to do with the math inside the .advancedBy() function.
