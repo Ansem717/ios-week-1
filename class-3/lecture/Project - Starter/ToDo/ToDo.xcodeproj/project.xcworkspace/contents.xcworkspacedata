@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-<<<<<<< HEAD
-      location = "self:">
-=======
-      location = "self:ToDo.xcodeproj">
->>>>>>> andy-1-4
+   <FileRef location = "self:ToDo.xcodeproj">
    </FileRef>
 </Workspace>
